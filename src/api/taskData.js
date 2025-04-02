@@ -4,7 +4,7 @@ const endpoint = clientCredentials.databaseURL;
 
 const getTaskData = (uid) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/tasks.json?orderBy="userId"&equalTo="${uid}"`, {
+    fetch(`${endpoint}/tasks.json?orderBy="uid"&equalTo="${uid}"`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const createTask = (payload) =>
 
 const deleteTask = (firebaseKey) =>
   new Promise((resolve, reject) => {
-    fetch(`${endpoint}/recipe/${firebaseKey}.json`, {
+    fetch(`${endpoint}/tasks/${firebaseKey}.json`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
